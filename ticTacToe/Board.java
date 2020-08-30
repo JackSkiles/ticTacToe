@@ -31,20 +31,18 @@ public class Board {
 		switch(menu1) {
 			case "1" :
 				while(game == true) {
-				System.out.println(" ----------- ");
-				System.out.println("| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |");
-				System.out.println("| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |");
-				System.out.println("| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |");
-				System.out.println(" ----------- ");
-				String tokenChoice = user.nextLine();
-				int token = Integer.parseInt(tokenChoice);
-				gameBoard.set(token, "X");
-				System.out.println(" -------- ");
-				System.out.println("| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |");
-				System.out.println("| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |");
-				System.out.println("| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |");
-				System.out.println(" -------- ");
-				break;
+					System.out.println(" ----------- ");
+					System.out.println("| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |");
+					System.out.println("| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |");
+					System.out.println("| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |");
+					System.out.println(" ----------- ");
+					String tokenChoice = user.nextLine();
+					int token = Integer.parseInt(tokenChoice);
+					gameBoard.set(token, "X");
+					if(gameBoard.get(0) == "X" && gameBoard.get(1) == "X" && gameBoard.get(2) == "X") {
+						System.out.println("X wins");
+						break;
+					}
 				}
 			case "2" : 
 				System.out.println("Thank you for playing!");
