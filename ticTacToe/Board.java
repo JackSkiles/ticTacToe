@@ -42,24 +42,35 @@ public class Board {
 					System.out.println(" ----------- ");
 					if (win == true) {
 						System.out.println(playerToken + " Wins!");
-						break;
+						for(int i = 0; i < 9; i++) {
+							gameBoard.add(i);
+							gameBoard.set(i, i);
+						}
+						player = true;
 					}
 					if (player == true) {
 						System.out.println("Player1 turn");
 						playerToken = "X";
 						String squareChoice = user.nextLine();
 						int token = Integer.parseInt(squareChoice);
-						gameBoard.set(token, "X");
-						player = false;
+						if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
+							System.out.println("Space already taken");
+						} else {
+							gameBoard.set(token, "X");
+							player = false;		
+						}
 					} else if (player == false) {
 						System.out.println("Player2 turn");
 						playerToken = "O";
 						String squareChoice = user.nextLine();
 						int token = Integer.parseInt(squareChoice);
-						gameBoard.set(token, "O");
-						player = true;
+						if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
+							System.out.println("Space already taken");
+						} else {
+							gameBoard.set(token, "O");
+							player = true;		
 						}
-					
+					}
 					if(gameBoard.get(0) == playerToken && gameBoard.get(1) == playerToken && gameBoard.get(2) == playerToken) {
 						win = true;
 					} else if(gameBoard.get(0) == playerToken && gameBoard.get(3) == playerToken && gameBoard.get(6) == playerToken) {
