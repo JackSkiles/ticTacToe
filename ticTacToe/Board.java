@@ -6,6 +6,16 @@ public class Board {
 	public static void main(String[] args) {
 			
 		Scanner user = new Scanner(System.in);
+		CpuPlayer cpu1 = new CpuPlayer();
+		
+		cpu1.losingSpace1 = 0;
+		cpu1.losingSpace2 = 0;
+		cpu1.losingSpace3 = 0;
+		
+		boolean game = true;
+		boolean win = false;
+		boolean player = true;
+		String playerToken = "X";
 		
 		ArrayList<CpuPlayer> gameList = new ArrayList();
 		ArrayList gameBoard = new ArrayList(6);
@@ -15,22 +25,17 @@ public class Board {
 			gameBoard.set(i, i);
 		}
 		
-		
 		System.out.println(" ----------- ");
 		System.out.println("| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |");
 		System.out.println("| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |");
 		System.out.println("| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |");
 		System.out.println(" ----------- ");
 		
-		boolean game = true;
-		boolean win = false;
 		
 		System.out.println("Welcome to TicTacToe! Type 1 to start a game or 2 to exit.");
 		
 		String menu1 = user.nextLine();
 		
-		boolean player = true;
-		String playerToken = "X";
 		
 		switch(menu1) {
 			case "1" :
