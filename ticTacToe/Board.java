@@ -1,5 +1,6 @@
 package ticTacToe;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Board {
@@ -7,6 +8,8 @@ public class Board {
 			
 		Scanner user = new Scanner(System.in);
 		CpuPlayer cpu1 = new CpuPlayer();
+		
+		int upperBound = 8;
 		
 		cpu1.losingSpace1 = 0;
 		cpu1.losingSpace2 = 0;
@@ -67,8 +70,9 @@ public class Board {
 					} else if (player == false) {
 						System.out.println("Player2 turn");
 						playerToken = "O";
-						String squareChoice = user.nextLine();
-						int token = Integer.parseInt(squareChoice);
+						Random rand = new Random();
+//						String squareChoice = user.nextLine();
+						int token = rand.nextInt(upperBound);
 						if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
 							System.out.println("Space already taken");
 						} else {
