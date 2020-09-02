@@ -11,6 +11,8 @@ public class Board {
 		
 		int upperBound = 8;
 		
+		cpu1.firstMove = 0;
+		cpu1.secondMove = 0;
 		cpu1.losingSpace1 = 0;
 		cpu1.losingSpace2 = 0;
 		cpu1.losingSpace3 = 0;
@@ -73,6 +75,7 @@ public class Board {
 						Random rand = new Random();
 //						String squareChoice = user.nextLine();
 						int token = rand.nextInt(upperBound);
+						
 						if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
 							System.out.println("Space already taken");
 						} else {
