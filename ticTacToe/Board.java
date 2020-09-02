@@ -17,13 +17,36 @@ public class Board {
 		cpu1.losingSpace2 = 0;
 		cpu1.losingSpace3 = 0;
 		
+		String winningCombo1 = "012";
+		String winningCombo2 = "036";
+		String winningCombo3 = "048";
+		String winningCombo4 = "147";
+		String winningCombo5 = "258";
+		String winningCombo6 = "246";
+		String winningCombo7 = "036";
+		String winningCombo8 = "345";
+		String winningCombo9 = "678";
+		
 		boolean game = true;
 		boolean win = false;
 		boolean player = true;
 		String playerToken = "X";
 		
 		ArrayList<CpuPlayer> gameList = new ArrayList();
-		ArrayList gameBoard = new ArrayList(6);
+		ArrayList gameBoard = new ArrayList();
+		ArrayList winningMove = new ArrayList();
+		
+		winningMove.add(winningCombo1);
+		winningMove.add(winningCombo2);
+		winningMove.add(winningCombo3);
+		winningMove.add(winningCombo4);
+		winningMove.add(winningCombo5);
+		winningMove.add(winningCombo6);
+		winningMove.add(winningCombo7);
+		winningMove.add(winningCombo8);
+		winningMove.add(winningCombo9);
+		
+		System.out.println(winningMove);
 		
 		for(int i = 0; i < 9; i++) {
 			gameBoard.add(i);
