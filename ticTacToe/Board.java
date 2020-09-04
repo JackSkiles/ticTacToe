@@ -32,6 +32,7 @@ public class Board {
 		boolean win = false;
 		boolean player = true;
 		boolean turn1 = true;
+		boolean turn2 = true;
 		String playerToken = "X";
 		
 		ArrayList<CpuPlayer> gameList = new ArrayList();
@@ -104,14 +105,14 @@ public class Board {
 						if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
 							System.out.println("Space already taken");
 						} else if(turn1 = true) {
-							cpu1.firstMove = token;
+							cpu1.firstMove = 0;
 							gameBoard.set(token, "O");
 							turn1 = false;
-							player = true;	
-						} else if(turn1 = false) {
+							player = true;
+						} else if(turn2 = true) {
 							cpu1.secondMove = token;
-							if((cpu1.firstMove + 1) == cpu1.secondMove) {
-								gameBoard.set(token, "O");
+							if((cpu1.firstMove - 1) == cpu1.secondMove || (cpu1.firstMove - 4) == cpu1.secondMove || (cpu1.firstMove - 3) == cpu1.secondMove || (cpu1.firstMove - 8) == cpu1.secondMove){
+								gameBoard.set(token, "O");			
 							} else {
 								break;
 							}
