@@ -104,12 +104,19 @@ public class Board {
 						if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
 							System.out.println("Space already taken");
 						} else if(turn1 = true) {
+							cpu1.firstMove = token;
 							gameBoard.set(token, "O");
 							turn1 = false;
 							player = true;	
-						} else {
-								
+						} else if(turn1 = false) {
+							cpu1.secondMove = token;
+							if((cpu1.firstMove + 1) == cpu1.secondMove) {
+								gameBoard.set(token, "O");
+							} else {
+								break;
+							}
 						}
+						
 					}
 					if(gameBoard.get(0) == playerToken && gameBoard.get(1) == playerToken && gameBoard.get(2) == playerToken) {
 						win = true;
