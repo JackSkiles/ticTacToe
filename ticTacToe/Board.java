@@ -18,22 +18,21 @@ public class Board {
 		cpu1.losingSpace2 = 0;
 		cpu1.losingSpace3 = 0;
 		
-		String winningCombo1 = "012";
-		String winningCombo2 = "036";
-		String winningCombo3 = "048";
-		String winningCombo4 = "147";
-		String winningCombo5 = "258";
-		String winningCombo6 = "246";
-		String winningCombo7 = "036";
-		String winningCombo8 = "345";
-		String winningCombo9 = "678";
+		String winningCombo1 = "";
+		String winningCombo2 = "";
+		String winningCombo3 = "";
+		String winningCombo4 = "";
+		String winningCombo5 = "";
+		String winningCombo6 = "";
+		String winningCombo7 = "";
+		String winningCombo8 = "";
+		String winningCombo9 = "";
 		
 		boolean game = true;
 		boolean win = false;
 		boolean player = true;
 		boolean turn1 = true;
 		boolean turn2 = true;
-		boolean cpuTurn = true;
 		String playerToken = "X";
 		
 		ArrayList<CpuPlayer> gameList = new ArrayList();
@@ -95,7 +94,6 @@ public class Board {
 						} else {
 							gameBoard.set(token, "X");
 							player = false;	
-							cpuTurn = true;
 						}
 					} else if (player == false) {
 						System.out.println("Player2 turn");
@@ -104,7 +102,7 @@ public class Board {
 //						String squareChoice = user.nextLine();
 						// int token = rand.nextInt(upperBound);
 						for(int i = 0; i < 9; i++) {
-							if (cpuTurn == false) {
+							if (player == true) {
 								break;
 							} else if (gameBoard.get(i) == "X" || gameBoard.get(i) == "O") {
 								System.out.println("Space already taken");
@@ -113,12 +111,10 @@ public class Board {
 								gameBoard.set(i, "O");
 								turn1 = false;
 								player = true;
-								cpuTurn = false;
 							} else if(turn2 = true) {
 								cpu1.secondMove = i;
 								if((cpu1.firstMove + 1) == cpu1.secondMove || (cpu1.firstMove + 4) == cpu1.secondMove || (cpu1.firstMove + 3) == cpu1.secondMove || (cpu1.firstMove + 8) == cpu1.secondMove){
 									gameBoard.set(i, "O");
-									cpuTurn = false;
 									player = true;
 								} else {
 									break;
