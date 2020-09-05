@@ -33,6 +33,7 @@ public class Board {
 		boolean player = true;
 		boolean turn1 = true;
 		boolean turn2 = true;
+		boolean cpuTurn = true;
 		String playerToken = "X";
 		
 		ArrayList<CpuPlayer> gameList = new ArrayList();
@@ -93,28 +94,35 @@ public class Board {
 							System.out.println("Space already taken");
 						} else {
 							gameBoard.set(token, "X");
-							player = false;		
+							player = false;	
+							cpuTurn = true;
 						}
 					} else if (player == false) {
 						System.out.println("Player2 turn");
 						playerToken = "O";
-						Random rand = new Random();
+						// Random rand = new Random();
 //						String squareChoice = user.nextLine();
-						int token = rand.nextInt(upperBound);
-						
-						if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
-							System.out.println("Space already taken");
-						} else if(turn1 = true) {
-							cpu1.firstMove = 0;
-							gameBoard.set(token, "O");
-							turn1 = false;
-							player = true;
-						} else if(turn2 = true) {
-							cpu1.secondMove = token;
-							if((cpu1.firstMove - 1) == cpu1.secondMove || (cpu1.firstMove - 4) == cpu1.secondMove || (cpu1.firstMove - 3) == cpu1.secondMove || (cpu1.firstMove - 8) == cpu1.secondMove){
-								gameBoard.set(token, "O");			
-							} else {
+						// int token = rand.nextInt(upperBound);
+						for(int i = 0; i < 9; i++) {
+							if (cpuTurn == false) {
 								break;
+							} else if (gameBoard.get(i) == "X" || gameBoard.get(i) == "O") {
+								System.out.println("Space already taken");
+							} else if(turn1 = true) {
+								cpu1.firstMove = 0;
+								gameBoard.set(i, "O");
+								turn1 = false;
+								player = true;
+								cpuTurn = false;
+							} else if(turn2 = true) {
+								cpu1.secondMove = i;
+								if((cpu1.firstMove + 1) == cpu1.secondMove || (cpu1.firstMove + 4) == cpu1.secondMove || (cpu1.firstMove + 3) == cpu1.secondMove || (cpu1.firstMove + 8) == cpu1.secondMove){
+									gameBoard.set(i, "O");
+									cpuTurn = false;
+									player = true;
+								} else {
+									break;
+								}						
 							}
 						}
 						
@@ -137,7 +145,7 @@ public class Board {
 						win = true;
 					} else if(gameBoard.get(6) == playerToken && gameBoard.get(7) == playerToken && gameBoard.get(8) == playerToken) {
 						win = true;
-					}
+					} 
 				}
 			case "2" : 
 				System.out.println("Thank you for playing!");
