@@ -1,11 +1,16 @@
 package ticTacToe;
 import java.util.ArrayList;
+import javax.swing.*;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Board {
 	public static void main(String[] args) {
-			
+		
+		JFrame frame = new JFrame("Hello");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500, 500);
+//		frame.setLayout(new FlowLayout());
 		Scanner user = new Scanner(System.in);
 		CpuPlayer cpu1 = new CpuPlayer();
 		
@@ -18,15 +23,15 @@ public class Board {
 		cpu1.losingSpace2 = 0;
 		cpu1.losingSpace3 = 0;
 		
-		String winningCombo1 = "";
-		String winningCombo2 = "";
-		String winningCombo3 = "";
-		String winningCombo4 = "";
-		String winningCombo5 = "";
-		String winningCombo6 = "";
-		String winningCombo7 = "";
-		String winningCombo8 = "";
-		String winningCombo9 = "";
+		String winningCombo1 = "012";
+		String winningCombo2 = "036";
+		String winningCombo3 = "048";
+		String winningCombo4 = "147";
+		String winningCombo5 = "258";
+		String winningCombo6 = "246";
+		String winningCombo7 = "036";
+		String winningCombo8 = "345";
+		String winningCombo9 = "678";
 		
 		boolean game = true;
 		boolean win = false;
@@ -55,27 +60,40 @@ public class Board {
 			gameBoard.add(i);
 			gameBoard.set(i, i);
 		}
+		frame.setVisible(true);
 		
 		System.out.println(" ----------- ");
+		JTextArea boardTop = new JTextArea(" ----------- \n"
+		+ "| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |\n"
+		+ "| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |\n"
+		+ "| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |\n"
+		+ " ----------- ");
+		frame.add(boardTop);
 		System.out.println("| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |");
 		System.out.println("| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |");
 		System.out.println("| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |");
 		System.out.println(" ----------- ");
-		
+		frame.setVisible(true);
 		
 		System.out.println("Welcome to TicTacToe! Type 1 to start a game or 2 to exit.");
 		
 		String menu1 = user.nextLine();
 		
-		
 		switch(menu1) {
 			case "1" :
 				while(game == true) {
+					boardTop.setText(" ----------- \n"
+							+ "| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |\n"
+							+ "| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |\n"
+							+ "| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |\n"
+							+ " ----------- ");
 					System.out.println(" ----------- ");
 					System.out.println("| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |");
 					System.out.println("| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |");
 					System.out.println("| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |");
 					System.out.println(" ----------- ");
+				    frame.dispose();
+				    frame.setVisible(true);
 					if (win == true) {
 						System.out.println(playerToken + " Wins!");
 						for(int i = 0; i < 9; i++) {
