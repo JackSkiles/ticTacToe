@@ -14,6 +14,9 @@ public class Board {
 		Scanner user = new Scanner(System.in);
 		CpuPlayer cpu1 = new CpuPlayer();
 		
+		JPanel mainBoard = new JPanel();
+		mainBoard.setBounds(500,500,500,500);
+		
 		int upperBound = 8;
 		
 		cpu1.firstMove = 0;
@@ -68,7 +71,8 @@ public class Board {
 		+ "| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |\n"
 		+ "| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |\n"
 		+ " ----------- ");
-		frame.add(boardTop);
+		mainBoard.add(boardTop);
+		frame.add(mainBoard);
 		System.out.println("| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |");
 		System.out.println("| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |");
 		System.out.println("| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |");
