@@ -14,11 +14,13 @@ public class MainBoard implements ActionListener{
 	ImageIcon image2;
 	JButton button;
 	JLabel label;
+	String move = "";
 	
 	public MainBoard() {
 		
 		textField = new JTextField(3);
-		
+		textField.setText("Choose you space number");
+		textField.addActionListener(this);
 		JButton button = new JButton("Submit");
 		button.addActionListener(this);
 		JFrame frame = new JFrame("Hello");
@@ -190,6 +192,7 @@ public class MainBoard implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		move = textField.getText();
 		System.out.println("Hello");
 		
 	}
