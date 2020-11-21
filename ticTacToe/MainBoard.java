@@ -6,23 +6,29 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class MainBoard {
+public class MainBoard implements ActionListener{
 	
 	JFrame frame;
+	JTextField textField;
 	ImageIcon image1;
 	ImageIcon image2;
 	JButton button;
 	JLabel label;
 	
 	public MainBoard() {
+		
+		textField = new JTextField(3);
+		
 		JButton button = new JButton("Submit");
+		button.addActionListener(this);
 		JFrame frame = new JFrame("Hello");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(500, 500);
+		frame.setLayout(new FlowLayout());
 //	frame.setLayout(new FlowLayout());
-		JPanel mainBoard = new JPanel();
-		mainBoard.setBounds(500,500,500,500);	
-		
+		JPanel mainBoard = new JPanel(new BorderLayout());
+		mainBoard.setBounds(50,50,500,500);	
+	
 		Scanner user = new Scanner(System.in);
 		CpuPlayer cpu1 = new CpuPlayer();
 
@@ -79,8 +85,10 @@ public class MainBoard {
 		+ "| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |\n"
 		+ "| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |\n"
 		+ " ----------- ");
-		mainBoard.add(boardTop);
+		mainBoard.add(boardTop, BorderLayout.PAGE_START);
 //		mainBoard.add(main);
+		mainBoard.add(textField, BorderLayout.CENTER);
+		mainBoard.add(button, BorderLayout.PAGE_END);
 		frame.add(mainBoard);
 		frame.setVisible(true);
 
@@ -179,5 +187,10 @@ public class MainBoard {
 				break;
 		}
 	
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("Hello");
+		
 	}
 }
