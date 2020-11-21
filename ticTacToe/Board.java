@@ -92,8 +92,7 @@ public class Board {
 					System.out.println("| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |");
 					System.out.println("| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |");
 					System.out.println(" ----------- ");
-				    frame.dispose();
-				    frame.setVisible(true);
+				    frame.revalidate();
 					if (win == true) {
 						System.out.println(playerToken + " Wins!");
 						for(int i = 0; i < 9; i++) {
