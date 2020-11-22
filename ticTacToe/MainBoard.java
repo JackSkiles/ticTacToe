@@ -1,6 +1,7 @@
 package ticTacToe;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import java.util.Scanner;
 import java.awt.*;
 import java.awt.event.*;
@@ -15,6 +16,7 @@ public class MainBoard implements ActionListener{
 	JButton button;
 	JLabel label;
 	String move = "";
+	boolean playerTurn = false;
 	
 	public MainBoard() {
 		
@@ -36,6 +38,15 @@ public class MainBoard implements ActionListener{
 
 		int upperBound = 8;
 		
+		String menu1 = JOptionPane.showInputDialog(
+				
+				null,
+				"Enter 1 to play, or 2 to exit: ",
+				"TicTacToe",
+				JOptionPane.PLAIN_MESSAGE
+				
+				
+				);
 		cpu1.firstMove = 0;
 		cpu1.secondMove = 0;
 		cpu1.thirdMove = 0;
@@ -43,16 +54,16 @@ public class MainBoard implements ActionListener{
 		cpu1.losingSpace2 = 0;
 		cpu1.losingSpace3 = 0;
 		
-		String winningCombo1 = "012";
-		String winningCombo2 = "036";
-		String winningCombo3 = "048";
-		String winningCombo4 = "147";
-		String winningCombo5 = "258";
-		String winningCombo6 = "246";
-		String winningCombo7 = "036";
-		String winningCombo8 = "345";
-		String winningCombo9 = "678";
-		
+//		String winningCombo1 = "012";
+//		String winningCombo2 = "036";
+//		String winningCombo3 = "048";
+//		String winningCombo4 = "147";
+//		String winningCombo5 = "258";
+//		String winningCombo6 = "246";
+//		String winningCombo7 = "036";
+//		String winningCombo8 = "345";
+//		String winningCombo9 = "678";
+//		
 		boolean game = true;
 		boolean win = false;
 		boolean player = true;
@@ -64,15 +75,15 @@ public class MainBoard implements ActionListener{
 		ArrayList gameBoard = new ArrayList();
 		ArrayList winningMove = new ArrayList();
 		
-		winningMove.add(winningCombo1);
-		winningMove.add(winningCombo2);
-		winningMove.add(winningCombo3);
-		winningMove.add(winningCombo4);
-		winningMove.add(winningCombo5);
-		winningMove.add(winningCombo6);
-		winningMove.add(winningCombo7);
-		winningMove.add(winningCombo8);
-		winningMove.add(winningCombo9);
+//		winningMove.add(winningCombo1);
+//		winningMove.add(winningCombo2);
+//		winningMove.add(winningCombo3);
+//		winningMove.add(winningCombo4);
+//		winningMove.add(winningCombo5);
+//		winningMove.add(winningCombo6);
+//		winningMove.add(winningCombo7);
+//		winningMove.add(winningCombo8);
+//		winningMove.add(winningCombo9);
 		
 		System.out.println(winningMove);
 		
@@ -102,8 +113,6 @@ public class MainBoard implements ActionListener{
 		
 		System.out.println("Welcome to TicTacToe! Type 1 to start a game or 2 to exit.");
 		
-		String menu1 = user.nextLine();
-		
 		switch(menu1) {
 			case "1" :
 				while(game == true) {
@@ -125,17 +134,20 @@ public class MainBoard implements ActionListener{
 						}
 						player = true;
 					}
-					if (player == true) {
+					if (player == true && playerTurn == true) {
 						System.out.println("Player1 turn");
 						playerToken = "X";
-						String squareChoice = user.nextLine();
+						String squareChoice = move;
 						int token = Integer.parseInt(squareChoice);
 						if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
 							System.out.println("Space already taken");
 						} else {
 							gameBoard.set(token, "X");
 							player = false;	
+							playerTurn = false;
 						}
+					} else if (player == true && playerTurn == false) {
+						continue;
 					} else if (player == false) {
 						System.out.println("Player2 turn");
 						playerToken = "O";
@@ -193,6 +205,7 @@ public class MainBoard implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		move = textField.getText();
+		playerTurn = true;
 		System.out.println("Hello");
 		
 	}
