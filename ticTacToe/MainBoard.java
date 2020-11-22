@@ -29,6 +29,7 @@ public class MainBoard implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(500, 500);
 		frame.setLayout(new FlowLayout());
+		JLabel winBanner = new JLabel();
 //	frame.setLayout(new FlowLayout());
 		JPanel mainBoard = new JPanel(new BorderLayout());
 		mainBoard.setBounds(50,50,500,500);	
@@ -127,7 +128,8 @@ public class MainBoard implements ActionListener{
 					System.out.println("| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |");
 					System.out.println(" ----------- ");
 					if (win == true) {
-						System.out.println(playerToken + " Wins!");
+						winBanner.setText(playerToken + " Wins!");
+						frame.add(winBanner, BorderLayout.PAGE_START);
 						for(int i = 0; i < 9; i++) {
 							gameBoard.add(i);
 							gameBoard.set(i, i);
