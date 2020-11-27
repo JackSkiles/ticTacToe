@@ -162,27 +162,35 @@ public class MainBoard implements ActionListener{
 						playerToken = "O";
 						Random rand = new Random();
 //						String squareChoice = user.nextLine();
-						 int token = rand.nextInt(upperBound);
-						for(int i = 0; i < 9; i++) {
-							if (player == true) {
-								break;
-							} else if (gameBoard.get(i) == "X" || gameBoard.get(i) == "O") {
-								System.out.println("Space already taken");
-							} else if(turn1 = true) {
-								cpu1.firstMove = 0;
-								gameBoard.set(i, "O");
-								turn1 = false;
-								player = true;
-							} else if(turn2 = true) {
-								cpu1.secondMove = i;
-								if((cpu1.firstMove + 1) == cpu1.secondMove || (cpu1.firstMove + 4) == cpu1.secondMove || (cpu1.firstMove + 3) == cpu1.secondMove || (cpu1.firstMove + 8) == cpu1.secondMove){
-									gameBoard.set(i, "O");
-									player = true;
-								} else {
-									break;
-								}						
-							}
+						int token = rand.nextInt(upperBound);
+						if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
+							System.out.println("Space already taken");
+						} else if(turn2 = true){
+							gameBoard.set(token, "O");
+							player = true;
+						} else {
+							break;
 						}
+//						for(int i = 0; i < 9; i++) {
+//							if (player == true) {
+//								break;
+//							} else if (gameBoard.get(i) == "X" || gameBoard.get(i) == "O") {
+//								System.out.println("Space already taken");
+//							} else if(turn1 = true) {
+//								cpu1.firstMove = 0;
+//								gameBoard.set(i, "O");
+//								turn1 = false;
+//								player = true;
+//							} else if(turn2 = true) {
+//								cpu1.secondMove = i;
+//								if((cpu1.firstMove + 1) == cpu1.secondMove || (cpu1.firstMove + 4) == cpu1.secondMove || (cpu1.firstMove + 3) == cpu1.secondMove || (cpu1.firstMove + 8) == cpu1.secondMove){
+//									gameBoard.set(i, "O");
+//									player = true;
+//								} else {
+//									break;
+//								}						
+//							}
+//						}
 						
 					}
 					if(gameBoard.get(0) == playerToken && gameBoard.get(1) == playerToken && gameBoard.get(2) == playerToken) {
