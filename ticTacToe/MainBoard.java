@@ -1,6 +1,8 @@
 package ticTacToe;
 
 import java.util.ArrayList;
+import java.util.Random;
+
 import javax.swing.JOptionPane;
 import java.util.Scanner;
 import java.awt.*;
@@ -137,25 +139,30 @@ public class MainBoard implements ActionListener{
 						player = true;
 					}
 					if (player == true && playerTurn == true) {
-						System.out.println("Player1 turn");
-						playerToken = "X";
-						String squareChoice = move;
-						int token = Integer.parseInt(squareChoice);
-						if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
-							System.out.println("Space already taken");
-						} else {
-							gameBoard.set(token, "X");
-							player = false;	
-							playerTurn = false;
+						try {
+							System.out.println("Player1 turn");
+							playerToken = "X";
+							String squareChoice = move;
+							int token = Integer.parseInt(squareChoice);
+							if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
+								System.out.println("Space already taken");
+							} else {
+								gameBoard.set(token, "X");
+								player = false;	
+								playerTurn = false;
+							}
+						}
+						catch(Exception e) {
+							System.out.println("Please enter number");
 						}
 					} else if (player == true && playerTurn == false) {
 						continue;
 					} else if (player == false) {
 						System.out.println("Player2 turn");
 						playerToken = "O";
-						// Random rand = new Random();
+						Random rand = new Random();
 //						String squareChoice = user.nextLine();
-						// int token = rand.nextInt(upperBound);
+						 int token = rand.nextInt(upperBound);
 						for(int i = 0; i < 9; i++) {
 							if (player == true) {
 								break;
@@ -206,9 +213,8 @@ public class MainBoard implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		move = textField.getText();
-		playerTurn = true;
-		System.out.println("Hello");
-		
+			move = textField.getText();
+			playerTurn = true;
+			System.out.println("Hello");			
 	}
 }
