@@ -23,7 +23,7 @@ public class MainBoard implements ActionListener{
 	public MainBoard() {
 		
 		textField = new JTextField(3);
-		textField.setText("Choose you space number");
+//		textField.setText("Choose you space number");
 		textField.addActionListener(this);
 		JButton button = new JButton("Submit");
 		button.addActionListener(this);
@@ -136,7 +136,26 @@ public class MainBoard implements ActionListener{
 							gameBoard.add(i);
 							gameBoard.set(i, i);
 						}
-						player = true;
+						String menu2 = JOptionPane.showInputDialog(
+								
+								null,
+								"Enter 1 to play again, 2 to exit: ",
+								"TicTacToe",
+								JOptionPane.PLAIN_MESSAGE
+								
+								
+								);
+						switch(menu2) {
+						case "1" :
+							win = false;
+							player = true;
+							continue;							
+						case "2" :
+							break;
+						}
+						if(win == true) {
+							break;
+						}
 					}
 					if (player == true && playerTurn == true) {
 						try {
@@ -146,10 +165,12 @@ public class MainBoard implements ActionListener{
 							int token = Integer.parseInt(squareChoice);
 							if (gameBoard.get(token) == "X" || gameBoard.get(token) == "O") {
 								System.out.println("Space already taken");
+								textField.setText("");
 							} else {
 								gameBoard.set(token, "X");
 								player = false;	
 								playerTurn = false;
+								textField.setText("");
 							}
 						}
 						catch(Exception e) {
