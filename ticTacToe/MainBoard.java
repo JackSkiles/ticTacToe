@@ -2,7 +2,6 @@ package ticTacToe;
 
 import java.util.ArrayList;
 import java.util.Random;
-
 import javax.swing.JOptionPane;
 import java.util.Scanner;
 import java.awt.*;
@@ -23,6 +22,7 @@ public class MainBoard implements ActionListener{
 	public MainBoard() {
 		
 		textField = new JTextField(3);
+		
 //		textField.setText("Choose you space number");
 		textField.addActionListener(this);
 		JButton button = new JButton("Submit");
@@ -32,6 +32,7 @@ public class MainBoard implements ActionListener{
 		frame.setSize(500, 500);
 		frame.setLayout(new FlowLayout());
 		JLabel winBanner = new JLabel();
+		Icon img = new ImageIcon(this.getClass().getResource("/download.jpg"));
 //	frame.setLayout(new FlowLayout());
 		JPanel mainBoard = new JPanel(new BorderLayout());
 		mainBoard.setBounds(50,50,500,500);	
