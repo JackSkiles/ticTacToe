@@ -32,7 +32,8 @@ public class MainBoard implements ActionListener{
 		frame.setSize(500, 500);
 		frame.setLayout(new FlowLayout());
 		JLabel winBanner = new JLabel();
-		Icon img = new ImageIcon(this.getClass().getResource("/download.jpg"));
+		JLabel O = new JLabel();
+		Icon Oimg = new ImageIcon(this.getClass().getResource("/o.png"));
 //	frame.setLayout(new FlowLayout());
 		JPanel mainBoard = new JPanel(new BorderLayout());
 		mainBoard.setBounds(50,50,500,500);	
@@ -132,7 +133,9 @@ public class MainBoard implements ActionListener{
 					System.out.println(" ----------- ");
 					if (win == true) {
 						winBanner.setText(playerToken + " Wins!");
+						O.setIcon(Oimg);
 						frame.add(winBanner, BorderLayout.PAGE_START);
+						frame.add(O);
 						for(int i = 0; i < 9; i++) {
 							gameBoard.add(i);
 							gameBoard.set(i, i);
