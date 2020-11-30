@@ -128,12 +128,12 @@ public class MainBoard implements ActionListener{
 		}
 		
 		System.out.println(" ----------- ");
-		JTextArea boardTop = new JTextArea(" ----------- \n"
-		+ "| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |\n"
-		+ "| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |\n"
-		+ "| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |\n"
-		+ " ----------- ");
-		mainBoard.add(boardTop, BorderLayout.PAGE_START);
+//		JTextArea boardTop = new JTextArea(" ----------- \n"
+//		+ "| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |\n"
+//		+ "| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |\n"
+//		+ "| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |\n"
+//		+ " ----------- ");
+//		mainBoard.add(boardTop, BorderLayout.PAGE_START);
 //		mainBoard.add(main);
 		mainBoard.add(textField, BorderLayout.CENTER);
 		mainBoard.add(button, BorderLayout.PAGE_END);
@@ -151,11 +151,6 @@ public class MainBoard implements ActionListener{
 		switch(menu1) {
 			case "1" :
 				while(game == true) {
-					boardTop.setText(" ----------- \n"
-							+ "| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |\n"
-							+ "| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |\n"
-							+ "| " + gameBoard.get(6) + " | " + gameBoard.get(7) + " | " + gameBoard.get(8) + " |\n"
-							+ " ----------- ");
 					System.out.println(" ----------- ");
 					System.out.println("| " + gameBoard.get(0) + " | " + gameBoard.get(1) + " | " + gameBoard.get(2) + " |");
 					System.out.println("| " + gameBoard.get(3) + " | " + gameBoard.get(4) + " | " + gameBoard.get(5) + " |");
