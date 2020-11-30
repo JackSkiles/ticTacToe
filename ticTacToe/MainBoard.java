@@ -37,19 +37,20 @@ public class MainBoard implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(600, 600);
 		frame.setLayout(new FlowLayout());
+		frame.setResizable(false);
 		JLabel winBanner = new JLabel();
 		JLabel O = new JLabel();
-		Icon Oimg = new ImageIcon(this.getClass().getResource("/o.png"));
+		Icon OImg = new ImageIcon(this.getClass().getResource("/o.png"));
+		Icon XImg = new ImageIcon(this.getClass().getResource("/x.png"));
 //	frame.setLayout(new FlowLayout());
 		JPanel mainBoard = new JPanel(new BorderLayout());
-		mainBoard.setBounds(150,500,300,50);	
+		mainBoard.setBounds(150,550,300,50);	
 	
 		Scanner user = new Scanner(System.in);
 		CpuPlayer cpu1 = new CpuPlayer();
 
 		int upperBound = 8;
 	    frame.setContentPane(new JLabel(new ImageIcon(this.getClass().getResource("/background.png"))));
-	    frame.pack();
 		String menu1 = JOptionPane.showInputDialog(
 				
 				null,
@@ -59,13 +60,27 @@ public class MainBoard implements ActionListener{
 				
 				
 				);
-		cpu1.firstMove = 0;
-		cpu1.secondMove = 0;
-		cpu1.thirdMove = 0;
-		cpu1.losingSpace1 = 0;
-		cpu1.losingSpace2 = 0;
-		cpu1.losingSpace3 = 0;
+		frame.getContentPane().add(new JLabel(new ImageIcon("/o.png")));
+		frame.setIconImage(new ImageIcon("/o.png").getImage());
+		frame.pack();
+		Icon FirstImg = new ImageIcon(this.getClass().getResource(""));
+		Icon SecondImg = new ImageIcon(this.getClass().getResource(""));
+		Icon ThirdImg = new ImageIcon(this.getClass().getResource(""));
+		Icon FourthImg = new ImageIcon(this.getClass().getResource(""));
+		Icon FithImg = new ImageIcon(this.getClass().getResource(""));
+		Icon SixthImg = new ImageIcon(this.getClass().getResource(""));
+		Icon SeventhImg = new ImageIcon(this.getClass().getResource(""));
+		Icon EighthImg = new ImageIcon(this.getClass().getResource(""));
+		Icon NinthImg = new ImageIcon(this.getClass().getResource(""));
 		
+			
+//		cpu1.firstMove = 0;
+//		cpu1.secondMove = 0;
+//		cpu1.thirdMove = 0;
+//		cpu1.losingSpace1 = 0;
+//		cpu1.losingSpace2 = 0;
+//		cpu1.losingSpace3 = 0;
+//		
 //		String winningCombo1 = "012";
 //		String winningCombo2 = "036";
 //		String winningCombo3 = "048";
@@ -140,7 +155,7 @@ public class MainBoard implements ActionListener{
 					System.out.println(" ----------- ");
 					if (win == true) {
 						winBanner.setText(playerToken + " Wins!");
-						O.setIcon(Oimg);
+						O.setIcon(OImg);
 						frame.add(winBanner, BorderLayout.PAGE_START);
 						frame.add(O);
 						for(int i = 0; i < 9; i++) {
