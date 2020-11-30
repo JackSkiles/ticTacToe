@@ -40,6 +40,7 @@ public class MainBoard implements ActionListener{
 		frame.setResizable(false);
 		JLabel winBanner = new JLabel();
 		JLabel O = new JLabel();
+		O.setBounds(25,25,200,200);
 		Icon OImg = new ImageIcon(this.getClass().getResource("/o.png"));
 		Icon XImg = new ImageIcon(this.getClass().getResource("/x.png"));
 //	frame.setLayout(new FlowLayout());
@@ -60,20 +61,18 @@ public class MainBoard implements ActionListener{
 				
 				
 				);
-		frame.getContentPane().add(new JLabel(new ImageIcon("/o.png")));
-		frame.setIconImage(new ImageIcon("/o.png").getImage());
+		O.setIcon(OImg);
+		frame.add(O);
 		frame.pack();
-		Icon FirstImg = new ImageIcon(this.getClass().getResource(""));
-		Icon SecondImg = new ImageIcon(this.getClass().getResource(""));
-		Icon ThirdImg = new ImageIcon(this.getClass().getResource(""));
-		Icon FourthImg = new ImageIcon(this.getClass().getResource(""));
-		Icon FithImg = new ImageIcon(this.getClass().getResource(""));
-		Icon SixthImg = new ImageIcon(this.getClass().getResource(""));
-		Icon SeventhImg = new ImageIcon(this.getClass().getResource(""));
-		Icon EighthImg = new ImageIcon(this.getClass().getResource(""));
-		Icon NinthImg = new ImageIcon(this.getClass().getResource(""));
-		
-			
+		JLabel FirstImg = new JLabel();
+		JLabel SecondImg = new JLabel();
+		JLabel ThirdImg = new JLabel();
+		JLabel FourthImg = new JLabel();
+		JLabel FithImg = new JLabel();
+		JLabel SixthImg = new JLabel();
+		JLabel SeventhImg = new JLabel();
+		JLabel EigthImg = new JLabel();
+		JLabel NinthImg = new JLabel();
 //		cpu1.firstMove = 0;
 //		cpu1.secondMove = 0;
 //		cpu1.thirdMove = 0;
