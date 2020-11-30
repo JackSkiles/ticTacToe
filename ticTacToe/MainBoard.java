@@ -76,7 +76,7 @@ public class MainBoard implements ActionListener{
 		JLabel FithImg = new JLabel();
 		FithImg.setBounds(210,210,200,200);
 		JLabel SixthImg = new JLabel();
-		SixthImg.setBounds(295,210,200,200);
+		SixthImg.setBounds(395,210,200,200);
 		JLabel SeventhImg = new JLabel();
 		SeventhImg.setBounds(25,395,200,200);
 		JLabel EigthImg = new JLabel();
@@ -196,6 +196,45 @@ public class MainBoard implements ActionListener{
 								textField.setText("");
 							} else {
 								gameBoard.set(token, "X");
+								switch (token) {
+								case 0:
+									FirstImg.setIcon(XImg);
+									frame.add(FirstImg);
+									break;
+								case 1:
+									SecondImg.setIcon(XImg);
+									frame.add(SecondImg);
+									break;
+								case 2:
+									ThirdImg.setIcon(XImg);
+									frame.add(ThirdImg);
+									break;
+								case 3:
+									FourthImg.setIcon(XImg);
+									frame.add(FourthImg);
+									break;
+								case 4:
+									FithImg.setIcon(XImg);
+									frame.add(FithImg);
+									break;
+								case 5:
+									SixthImg.setIcon(XImg);
+									frame.add(SixthImg);
+									break;
+								case 6:
+									SeventhImg.setIcon(XImg);
+									frame.add(SeventhImg);
+									break;
+								case 7:
+									EigthImg.setIcon(XImg);
+									frame.add(EigthImg);
+									break;
+								case 8:
+									NinthImg.setIcon(XImg);
+									frame.add(NinthImg);
+									break;
+							}
+							frame.repaint();
 								player = false;	
 								playerTurn = false;
 								textField.setText("");
@@ -216,7 +255,46 @@ public class MainBoard implements ActionListener{
 							System.out.println("Space already taken");
 						} else if(turn2 = true){
 							gameBoard.set(token, "O");
+							switch (token) {
+								case 0:
+									FirstImg.setIcon(OImg);
+									frame.add(FirstImg);
+									break;
+								case 1:
+									SecondImg.setIcon(OImg);
+									frame.add(SecondImg);
+									break;
+								case 2:
+									ThirdImg.setIcon(OImg);
+									frame.add(ThirdImg);
+									break;
+								case 3:
+									FourthImg.setIcon(OImg);
+									frame.add(FourthImg);
+									break;
+								case 4:
+									FithImg.setIcon(OImg);
+									frame.add(FithImg);
+									break;
+								case 5:
+									SixthImg.setIcon(OImg);
+									frame.add(SixthImg);
+									break;
+								case 6:
+									SeventhImg.setIcon(OImg);
+									frame.add(SeventhImg);
+									break;
+								case 7:
+									EigthImg.setIcon(OImg);
+									frame.add(EigthImg);
+									break;
+								case 8:
+									NinthImg.setIcon(OImg);
+									frame.add(NinthImg);
+									break;
+							}
 							player = true;
+							frame.repaint();
 						} else {
 							break;
 						}
