@@ -6,6 +6,10 @@ import javax.swing.JOptionPane;
 import java.util.Scanner;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class MainBoard implements ActionListener{
@@ -19,8 +23,10 @@ public class MainBoard implements ActionListener{
 	String move = "";
 	boolean playerTurn = false;
 	
+	
 	public MainBoard() {
 		
+	
 		textField = new JTextField(3);
 		
 //		textField.setText("Choose you space number");
@@ -42,7 +48,8 @@ public class MainBoard implements ActionListener{
 		CpuPlayer cpu1 = new CpuPlayer();
 
 		int upperBound = 8;
-		
+	    frame.setContentPane(new JLabel(new ImageIcon(this.getClass().getResource("/background.png"))));
+	    frame.pack();
 		String menu1 = JOptionPane.showInputDialog(
 				
 				null,
