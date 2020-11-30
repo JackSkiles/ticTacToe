@@ -35,14 +35,14 @@ public class MainBoard implements ActionListener{
 		button.addActionListener(this);
 		JFrame frame = new JFrame("Hello");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 500);
+		frame.setSize(600, 600);
 		frame.setLayout(new FlowLayout());
 		JLabel winBanner = new JLabel();
 		JLabel O = new JLabel();
 		Icon Oimg = new ImageIcon(this.getClass().getResource("/o.png"));
 //	frame.setLayout(new FlowLayout());
 		JPanel mainBoard = new JPanel(new BorderLayout());
-		mainBoard.setBounds(50,50,500,500);	
+		mainBoard.setBounds(150,500,300,50);	
 	
 		Scanner user = new Scanner(System.in);
 		CpuPlayer cpu1 = new CpuPlayer();
