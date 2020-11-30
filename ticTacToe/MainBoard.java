@@ -39,8 +39,9 @@ public class MainBoard implements ActionListener{
 		frame.setLayout(new FlowLayout());
 		frame.setResizable(false);
 		JLabel winBanner = new JLabel();
-		JLabel O = new JLabel();
-		O.setBounds(395,395,200,200);
+		winBanner.setBounds(100,15,15,15);
+//		JLabel O = new JLabel();
+//		O.setBounds(395,395,200,200);
 		Icon OImg = new ImageIcon(this.getClass().getResource("/o.png"));
 		Icon XImg = new ImageIcon(this.getClass().getResource("/x.png"));
 //	frame.setLayout(new FlowLayout());
@@ -61,8 +62,8 @@ public class MainBoard implements ActionListener{
 				
 				
 				);
-		O.setIcon(OImg);
-		frame.add(O);
+//		O.setIcon(OImg);
+//		frame.add(O);
 		frame.pack();
 		JLabel FirstImg = new JLabel();
 		FirstImg.setBounds(25,25,200,200);
@@ -158,9 +159,7 @@ public class MainBoard implements ActionListener{
 					System.out.println(" ----------- ");
 					if (win == true) {
 						winBanner.setText(playerToken + " Wins!");
-						O.setIcon(OImg);
-						frame.add(winBanner, BorderLayout.PAGE_START);
-						frame.add(O);
+						frame.add(winBanner);
 						for(int i = 0; i < 9; i++) {
 							gameBoard.add(i);
 							gameBoard.set(i, i);
@@ -261,7 +260,17 @@ public class MainBoard implements ActionListener{
 						win = true;
 					} else if(gameBoard.get(6) == playerToken && gameBoard.get(7) == playerToken && gameBoard.get(8) == playerToken) {
 						win = true;
-					} 
+					} else if(gameBoard.get(0) == playerToken && gameBoard.get(3) == playerToken && gameBoard.get(6) == playerToken &&
+							gameBoard.get(0) == playerToken && gameBoard.get(4) == playerToken && gameBoard.get(8) == playerToken &&
+							gameBoard.get(1) == playerToken && gameBoard.get(4) == playerToken && gameBoard.get(7) == playerToken &&
+							gameBoard.get(2) == playerToken && gameBoard.get(5) == playerToken && gameBoard.get(8) == playerToken &&
+							gameBoard.get(2) == playerToken && gameBoard.get(4) == playerToken && gameBoard.get(6) == playerToken &&
+							gameBoard.get(0) == playerToken && gameBoard.get(3) == playerToken && gameBoard.get(6) == playerToken &&
+							gameBoard.get(3) == playerToken && gameBoard.get(4) == playerToken && gameBoard.get(5) == playerToken &&
+							gameBoard.get(6) == playerToken && gameBoard.get(7) == playerToken && gameBoard.get(8) == playerToken
+							) {
+						win = true;
+					}
 				}
 			case "2" : 
 				System.out.println("Thank you for playing!");
