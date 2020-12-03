@@ -33,13 +33,11 @@ public class MainBoard implements ActionListener{
 		textField.addActionListener(this);
 		JButton button = new JButton("Submit");
 		button.addActionListener(this);
-		JFrame frame = new JFrame("Hello");
+		JFrame frame = new JFrame("TicTacToe");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(600, 600);
 		frame.setLayout(new FlowLayout());
 		frame.setResizable(false);
-		JLabel winBanner = new JLabel();
-		winBanner.setBounds(100,15,15,15);
 //		JLabel O = new JLabel();
 //		O.setBounds(395,395,200,200);
 		Icon OImg = new ImageIcon(this.getClass().getResource("/o.png"));
@@ -65,6 +63,11 @@ public class MainBoard implements ActionListener{
 //		O.setIcon(OImg);
 //		frame.add(O);
 		frame.pack();
+		JLabel winBanner = new JLabel();
+		winBanner.setBounds(220,0,200,40);
+		winBanner.setFont(new Font("Serif", Font.BOLD, 48));
+		winBanner.setForeground(Color.white);
+		frame.add(winBanner);
 		JLabel FirstImg = new JLabel();
 		FirstImg.setBounds(25,25,200,200);
 		JLabel SecondImg = new JLabel();
@@ -167,7 +170,7 @@ public class MainBoard implements ActionListener{
 						String menu2 = JOptionPane.showInputDialog(
 								
 								null,
-								"Enter 1 to play again, 2 to exit: ",
+								playerToken + " Wins! \nEnter 1 to play again, 2 to exit: ",
 								"TicTacToe",
 								JOptionPane.PLAIN_MESSAGE
 								
@@ -177,6 +180,18 @@ public class MainBoard implements ActionListener{
 						case "1" :
 							win = false;
 							player = true;
+							frame.remove(FirstImg);
+							frame.remove(SecondImg);
+							frame.remove(ThirdImg);
+							frame.remove(FourthImg);
+							frame.remove(FithImg);
+							frame.remove(SixthImg);
+							frame.remove(SeventhImg);
+							frame.remove(EigthImg);
+							frame.remove(NinthImg);
+							frame.remove(winBanner);
+							frame.validate();
+							frame.repaint();
 							continue;							
 						case "2" :
 							break;
